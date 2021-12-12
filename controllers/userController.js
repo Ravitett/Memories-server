@@ -7,6 +7,7 @@ exports.userController =  {
             let data = await userModel.find({});
             res.json(data);
         } catch (error) {
+            console.log(error);
             res.send("somthing is broken");
         } 
     },

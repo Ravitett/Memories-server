@@ -14,4 +14,4 @@ app.all('*',(req,res) => {
     res.send("Page not found");
 });
 
-app.listen(3005);
+app.listen(3006);

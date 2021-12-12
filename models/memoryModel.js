@@ -1,25 +1,26 @@
 const {Schema, model} = require('mongoose');
 
 const memorySchema = new Schema({
-    id: {type: Number, required:true, unique:true},
-    userID: {type: Number, required:true},
-    from: {type: String, required:true},
-    to: {type: String, required:true},
-    departDate: {type: String, required:true},
-    departTime: {type: String, required:true},
-    arrDate: {type: String, required:true},
-    arrTime: {type: String, required:true},
-    arrLocation: {type: String, required:true}
+    _id:Schema.Types.ObjectId,
+    userID: Schema.Types.ObjectId,
+    date: {type: String},
+    location:{
+        x:{type:String},
+        y:{type: String}
+    },
+    tag:[String],
+    gallery:[String],
+    memory:{type:String, required:true}
 } ,{collection:'memories'}) ;
 
 
-    memorySchema.
-    path('from')
-    .set(from => String(from).toUpperCase());
+    // memorySchema.
+    // path('from')
+    // .set(from => String(from).toUpperCase());
 
-    memorySchema.
-    path('to')
-    .set(to => String(to).toUpperCase());
+    // memorySchema.
+    // path('to')
+    // .set(to => String(to).toUpperCase());
 
    
 
