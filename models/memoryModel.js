@@ -1,7 +1,6 @@
 const {Schema, model} = require('mongoose');
 
 const memorySchema = new Schema({
-    _id:Schema.Types.ObjectId,
     userID: Schema.Types.ObjectId,
     date: {type: String},
     location:{
@@ -26,4 +25,4 @@ const memorySchema = new Schema({
 
 
 const memoryModel = model('Memory', memorySchema);
-module.exports = memoryModel;
+exports.memoryModel = memoryModel;
