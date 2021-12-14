@@ -10,6 +10,10 @@ app.use('/api/user',userRouter);
 const {memoryRouter} = require('./routers/memoryRouter');
 app.use('/api/memories',memoryRouter);
 
+// app.post('/token' ,(req, res) => {
+
+// })
+
 app.all('*',(req,res) => {
     res.send("Page not found");
 });
