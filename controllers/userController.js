@@ -1,4 +1,6 @@
-const {userModel} = require("../models/userModel");
+const {userModel,userValidation} = require("../models/userModel");
+const bcrypt = require('bcrypt');
+const { object } = require("joi");
 
 exports.userController =  {
 
@@ -23,9 +25,16 @@ exports.userController =  {
     },
 
     async add(req,res){
+
+        let validUser = userValidation(req.body);
+        if (validUser.error){
+            return res.status(400).json(validUser.error.details);
+        }
+
         try {
 
             const obj = new userModel(req.body);
+            obj.password = await bcrypt.hash(obj.password,10);
             const result = await obj.save();
 
             if(result){
@@ -35,11 +44,18 @@ exports.userController =  {
             } 
 
         } catch (error) {
+            console.log(error);
             res.send("somthing is broken");
         }
     },
 
     async update(req,res){
+
+        let validUser = userValidation(req.body);
+        if (validUser.error){
+            return res.status(400).json(validUser.error.details);
+        }
+
         try {
             let data = await userModel.updateOne({id:req.params.id},req.body);
             if(data){
