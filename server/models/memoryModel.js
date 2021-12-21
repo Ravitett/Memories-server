@@ -1,8 +1,6 @@
-const { type } = require('express/lib/response');
 const {Schema, model} = require('mongoose');
 
 const memorySchema = new Schema({
-    id: {type: Schema.Types.ObjectId, auto: true},/* לבנתיים */
     userID: Schema.Types.ObjectId,
     date: {type: String},
     location:{
@@ -11,9 +9,7 @@ const memorySchema = new Schema({
     },
     tag:[String],
     gallery:[String],
-    title: {type: String, require:true},
-    memory:{type:String, required:true},
-    aprove: {type: Boolean, default: false}
+    memory:{type:String, required:true}
 } ,{collection:'memories'}) ;
 
 

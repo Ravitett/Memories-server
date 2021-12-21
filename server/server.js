@@ -1,26 +1,22 @@
 const express = require('express');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const cors = require("cors");
 
 const {userModel} = require("./models/userModel");
 const {checkToken} = require("./checkToken");
 
 const app = express();
 
-app.use(cors());
-
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 const {userRouter} = require('./routers/userRouter');
-app.use('/api/user' ,userRouter);
+app.use('/api/user', checkToken ,userRouter);
 
 const {memoryRouter} = require('./routers/memoryRouter');
-app.use('/api/memories', memoryRouter);
+app.use('/api/memories', checkToken ,memoryRouter);
 
-app.post('/login' ,async (req, res) => {
-    console.log(req.body);
+app.post('/token' ,async (req, res) => {
     let user = await userModel.findOne({email: req.body.email})
     if(!user) {
         return res.status(401).json({messege: "user not found"});
@@ -29,8 +25,8 @@ app.post('/login' ,async (req, res) => {
     if(!comperPassord){
         return res.status(401).json({messege: "worng password"});
     }
-    let newToken = jwt.sign({_id: user._id}, process.env.JWT_SECRET, {expiresIn: "30d"});
-    res.json({token: newToken, id:user._id, fullName: user.full_name, type: user.userType});
+    let newToken = jwt.sign({_id: user._id}, "ROTEMSECRET", {expiresIn: "60mins"});
+    res.json({token: newToken});
 })
 
 app.all('*',(req,res) => {

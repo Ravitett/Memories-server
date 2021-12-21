@@ -5,8 +5,27 @@ exports.memoryController =  {
 
     async getAll(req,res){
         try {
-            let data = await userModel.find({});
-            res.json(data);
+
+            
+                let data = await memoryModel.find({aprove: true});
+                res.json(data);
+            
+              
+        } catch (error) {
+            res.send("somthing is broken");
+        } 
+    },
+    async getAllManeger(req,res){
+        try {
+
+            if(res.locals.userType == 'm'){
+                let data = await memoryModel.find({});
+                res.json(data);
+            }else{
+                
+                res.send("you have to be maneger")
+            }
+              
         } catch (error) {
             res.send("somthing is broken");
         } 
@@ -14,7 +33,7 @@ exports.memoryController =  {
 
     async getByID(req,res){
         try {
-            let data = await userModel.findOne({id:req.params.id});
+            let data = await memoryModel.findOne({_id:req.params.id});
             res.json(data);
         } catch (error) {
             res.send("somthing is broken");
@@ -24,7 +43,7 @@ exports.memoryController =  {
     async add(req,res){
         try {
 
-            const obj = new userModel(req.body);
+            const obj = new memoryModel(req.body);
             const result = await obj.save();
 
             if(result){
@@ -34,13 +53,14 @@ exports.memoryController =  {
             } 
 
         } catch (error) {
-            res.send("somthing is broken");
+            console.log(error);
+            res.json({err:true});
         }
     },
 
     async update(req,res){
         try {
-            let data = await userModel.updateOne({id:req.params.id},req.body);
+            let data = await memoryModel.updateOne({id:req.params.id},req.body);
             if(data){
                 res.send(data)
             } else{
@@ -50,10 +70,30 @@ exports.memoryController =  {
             res.send("somthing is broken");
         } 
     },
+    async aproveMemory(req,res){
+        try {
+
+            if(res.locals.userType == 'm'){
+                let data = await memoryModel.updateOne({_id:req.params.id},{aprove: true});
+                if(data){
+                    res.send(data.acknowledged)
+                } else{
+                    res.send(false);
+                } 
+            }else{
+                
+                res.send("you have to be maneger")
+            }
+            
+            
+        } catch (error) {
+            res.send("somthing is broken");
+        } 
+    },
 
     async delete(req,res){
         try {
-            let data = await userModel.deleteOne({id:req.params.id});
+            let data = await memoryModel.deleteOne({id:req.params.id});
             if(data){
                 res.send(data)
             } else{
