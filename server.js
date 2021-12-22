@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const {userModel} = require("./models/userModel");
 const {checkToken} = require("./checkToken");
-
+const PORT = 3006;
 const app = express();
 
 app.use(cors());
@@ -37,4 +37,4 @@ app.all('*',(req,res) => {
     res.send("Page not found");
 });
 
-app.listen(3006);
+app.listen(process.env.PORT || 3006);

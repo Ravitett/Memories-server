@@ -16,7 +16,8 @@ exports.userModel = userModel;
 exports.userValidation = (_data) => {
     let joiSchema = joi.object({
         email: joi.string().min(5).max(250).email().required(), 
-        password: joi.string().min(8).max(100).required()
+        password: joi.string().min(8).max(100).required(),
+        full_name: joi.string()
     });
     return joiSchema.validate(_data);
 }

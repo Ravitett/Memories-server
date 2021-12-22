@@ -28,6 +28,7 @@ exports.userController =  {
 
         let validUser = userValidation(req.body);
         if (validUser.error){
+            console.log(validUser.error.details);
             return res.status(400).json(validUser.error.details);
         }
 
