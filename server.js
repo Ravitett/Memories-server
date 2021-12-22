@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const {userModel} = require("./models/userModel");
 const {checkToken} = require("./checkToken");
-const PORT = 3006;
+
 const app = express();
 
 app.use(cors());
@@ -32,6 +32,7 @@ app.post('/login' ,async (req, res) => {
     let newToken = jwt.sign({_id: user._id}, process.env.JWT_SECRET, {expiresIn: "30d"});
     res.json({token: newToken, id:user._id, fullName: user.full_name, type: user.userType});
 })
+
 
 app.all('*',(req,res) => {
     res.send("Page not found");
