@@ -18,7 +18,7 @@ const checkToken = async(req, res, next) => {
         return res.status(401).json({message: "you must send token"});
     }
     try {
-        let verifyToken = jwt.verify(token, "ROTEMSECRET");
+        let verifyToken = jwt.verify(token, process.env.JWT_SECRET);
         res.locals.userType = await getUserType(verifyToken._id);
         next();
     } catch (error) {
