@@ -60,7 +60,7 @@ exports.memoryController =  {
 
     async update(req,res){
         try {
-            let data = await memoryModel.updateOne({id:req.params.id},req.body);
+            let data = await memoryModel.updateOne({_id:req.params.id},req.body);
             if(data){
                 res.send(data)
             } else{
@@ -93,7 +93,7 @@ exports.memoryController =  {
 
     async delete(req,res){
         try {
-            let data = await memoryModel.deleteOne({id:req.params.id});
+            let data = await memoryModel.deleteOne({_id:req.params.id});
             if(data){
                 res.send(data)
             } else{

@@ -2,9 +2,10 @@ const jwt = require("jsonwebtoken");
 const express =require("express");
 const {userModel,userValidation} = require("./models/userModel");
 
-const getUserType = async(_id) => {
+const getUserType = async(id) => {
+    
     try {
-        let data = await userModel.findOne({_id: _id});
+        let data = await userModel.findOne({_id: id});
         return data.userType;   
     } catch (error) {
         console.log(error);
