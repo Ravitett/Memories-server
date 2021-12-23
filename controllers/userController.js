@@ -52,11 +52,6 @@ exports.userController =  {
 
     async update(req,res){
 
-        let validUser = userValidation(req.body);
-        if (validUser.error){
-            return res.status(400).json(validUser.error.details);
-        }
-
         try {
             let data = await userModel.updateOne({_id:req.params.id},req.body);
             if(data){
