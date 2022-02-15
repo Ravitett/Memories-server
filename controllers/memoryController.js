@@ -1,3 +1,5 @@
+const {memoryModel} = require("../models/memoryModel");
+const {memoryJoi} = require("../joi/memoryJoi")
 
 exports.memoryController =  {
 
