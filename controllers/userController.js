@@ -106,5 +106,4 @@ exports.userController =  {
         
 >>>>>>> init-project
     }
-
 }
