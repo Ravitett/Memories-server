@@ -1,14 +1,8 @@
-const { type } = require('express/lib/response');
 const {Schema, model} = require('mongoose');
 
 const memorySchema = new Schema({
-<<<<<<< HEAD
-    id: {type: Schema.Types.ObjectId, auto: true},/* לבנתיים */
-    userID: Schema.Types.ObjectId,
-=======
     _id: {type: Schema.Types.ObjectId, auto: true},
     userID: {type:Schema.Types.ObjectId,ref:'User',required:true},
->>>>>>> init-project
     date: {type: String},
     location:{
         x:{type:String},
@@ -18,12 +12,8 @@ const memorySchema = new Schema({
     gallery:[String],
     title: {type: String, require:true},
     memory:{type:String, required:true},
-<<<<<<< HEAD
-    aprove: {type: Boolean, default: false}
-=======
     status: {type: String, default: "unChecked"},
     chat: {type:[{from:{type:String},message:{type:String}, time:{type: Date, default: Date.now}}]}
->>>>>>> init-project
 } ,{collection:'memories'}) ;
 
 const memoryModel = model('Memory', memorySchema);
