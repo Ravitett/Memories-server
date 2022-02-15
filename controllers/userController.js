@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 const {userModel,userValidation} = require("../models/userModel");
 const bcrypt = require('bcrypt');
 const { object } = require("joi");
+=======
+>>>>>>> init-project
 
 exports.userController =  {
 
     async getAll(req,res){
+<<<<<<< HEAD
         try {
             let data = await userModel.find({});
             res.json(data);
@@ -48,10 +52,24 @@ exports.userController =  {
             console.log(error);
             res.send("somthing is broken");
         }
+=======
+       
+    },
+
+    async getByID(req,res){
+       
+    },
+
+    async add(req,res){
+
+        
+       
+>>>>>>> init-project
     },
 
     async update(req,res){
 
+<<<<<<< HEAD
         try {
             let data = await userModel.updateOne({_id:req.params.id},req.body);
             if(data){
@@ -75,6 +93,13 @@ exports.userController =  {
         } catch (error) {
             res.send("somthing is broken");
         } 
+=======
+       
+    },
+
+    async delete(req,res){
+        
+>>>>>>> init-project
     }
 
 }
