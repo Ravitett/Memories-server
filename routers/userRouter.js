@@ -6,7 +6,7 @@ const userRouter = new Router();
 
 module.exports = {userRouter};
 
-userRouter.get('/', checkToken, userController.getAll);
+userRouter.get('/', userController.getAll);
 userRouter.get('/:id', checkToken, userController.getByID);
 userRouter.post('/',userController.add);
 userRouter.put('/:id', checkToken, userController.update);
