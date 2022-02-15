@@ -1,5 +1,8 @@
 const {Schema, model, Types} = require('mongoose');
+<<<<<<< HEAD
 const joi = require('joi');
+=======
+>>>>>>> init-project
 
 const userSchema = new Schema({
     _id:{type:Types.ObjectId, auto: true},
@@ -10,9 +13,9 @@ const userSchema = new Schema({
 } ,{collection:'users'});
 
 const userModel = model('User', userSchema);
-
 exports.userModel = userModel;
 
+<<<<<<< HEAD
 exports.userValidation = (_data) => {
     let joiSchema = joi.object({
         email: joi.string().min(5).max(250).email().required(), 
@@ -21,3 +24,5 @@ exports.userValidation = (_data) => {
     });
     return joiSchema.validate(_data);
 }
+=======
+>>>>>>> init-project
