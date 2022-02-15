@@ -25,5 +25,4 @@ exports.userController =  {
     async delete(req,res){
         
     }
-
 }
