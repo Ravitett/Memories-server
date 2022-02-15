@@ -1,9 +1,20 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5d1e0f22b8ddd69c99bddb574874aa587c212f39
 const {userModel,userValidation} = require("../models/userModel");
 const bcrypt = require('bcrypt');
 const { object } = require("joi");
 =======
 >>>>>>> init-project
+<<<<<<< HEAD
+=======
+=======
+const {userModel} = require("../models/userModel");
+const {userJoi} = require("../joi/userJoi")
+>>>>>>> mongoose-joi
+>>>>>>> 5d1e0f22b8ddd69c99bddb574874aa587c212f39
 
 exports.userController =  {
 

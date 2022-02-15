@@ -20,7 +20,17 @@
     "mongoose": "^6.1.1"
 =======
     "cors": "^2.8.5",
+<<<<<<< HEAD
     "express": "^4.17.2"
 >>>>>>> init-project
+<<<<<<< HEAD
+=======
+=======
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "joi": "^17.5.0",
+    "mongoose": "^6.1.7"
+>>>>>>> mongoose-joi
+>>>>>>> 5d1e0f22b8ddd69c99bddb574874aa587c212f39
   }
 }
