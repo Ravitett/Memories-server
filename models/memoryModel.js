@@ -5,8 +5,8 @@ const memorySchema = new Schema({
     userID: {type:Schema.Types.ObjectId,ref:'User',required:true},
     date: {type: String},
     location:{
-        x:{type:String},
-        y:{type: String}
+        lat:{type:Number},
+        lng:{type: Number}
     },
     tag:[String],
     gallery:[String],
