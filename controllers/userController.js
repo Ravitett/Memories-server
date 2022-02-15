@@ -1,9 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 const {userModel,userValidation} = require("../models/userModel");
 const bcrypt = require('bcrypt');
 const { object } = require("joi");
 =======
 >>>>>>> init-project
+=======
+const {userModel} = require("../models/userModel");
+const {userJoi} = require("../joi/userJoi")
+>>>>>>> mongoose-joi
 
 exports.userController =  {
 
