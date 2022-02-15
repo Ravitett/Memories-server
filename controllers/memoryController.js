@@ -1,67 +1,44 @@
 
-const {memoryModel} = require("../models/memoryModel");
-
 exports.memoryController =  {
 
     async getAll(req,res){
-        try {
-            let data = await userModel.find({});
-            res.json(data);
-        } catch (error) {
-            res.send("somthing is broken");
-        } 
+        
+    },
+    async getAllByUserID(req,res){
+       
+    },
+    async getAllManeger(req,res){
+       
     },
 
     async getByID(req,res){
-        try {
-            let data = await userModel.findOne({id:req.params.id});
-            res.json(data);
-        } catch (error) {
-            res.send("somthing is broken");
-        } 
+
+    },
+
+    async getBadWords(req,res){
+        
     },
 
     async add(req,res){
-        try {
-
-            const obj = new userModel(req.body);
-            const result = await obj.save();
-
-            if(result){
-                res.json(result);
-            } else{
-                res.send("error");
-            } 
-
-        } catch (error) {
-            res.send("somthing is broken");
-        }
+        
     },
 
     async update(req,res){
-        try {
-            let data = await userModel.updateOne({id:req.params.id},req.body);
-            if(data){
-                res.send(data)
-            } else{
-                res.send("error");
-            } 
-        } catch (error) {
-            res.send("somthing is broken");
-        } 
+        
     },
 
+    async changeStatus(req,res){
+       
+        
+    },
+
+    async chatSaveMsg(req, res) {
+      
+    },
     async delete(req,res){
-        try {
-            let data = await userModel.deleteOne({id:req.params.id});
-            if(data){
-                res.send(data)
-            } else{
-                res.send("error");
-            } 
-        } catch (error) {
-            res.send("somthing is broken");
-        } 
+        
+        
     }
 
 }
+
