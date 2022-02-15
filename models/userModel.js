@@ -10,4 +10,3 @@ const userSchema = new Schema({
 
 const userModel = model('User', userSchema);
 exports.userModel = userModel;
-
