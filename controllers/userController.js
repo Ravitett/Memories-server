@@ -1,3 +1,5 @@
+const {userModel} = require("../models/userModel");
+const {userJoi} = require("../joi/userJoi")
 
 exports.userController =  {
 
