@@ -6,7 +6,7 @@ exports.memoryController = {
     async getAll(req, res) {
         try {
             const memories = await memoryModel.find({status:'approved'})
-                .select(['_id','date','memory','title','gallery','location']);
+                .select(['_id','location']);
             res.json(memories);
         } catch (error) {
             res.json({ status: "error", message: "error in DB connection" });
@@ -19,7 +19,7 @@ exports.memoryController = {
                 .select(['date','memory','title','gallery']);
             res.json(memory);
         } catch (error) {
-            res.json({ status: "error", message: "error in DB connection" });
+            res.json({ status: "error", message: "id not exist" });
         }
     },
     
@@ -29,7 +29,7 @@ exports.memoryController = {
                 .select(['chat']);
             res.json(memory);
         } catch (error) {
-            res.json({ status: "error", message: "error in DB connection" });
+            res.json({ status: "error", message: "id not exist" });
         }
     },
 
@@ -54,7 +54,7 @@ exports.memoryController = {
             })
             res.json(memories);
         } catch (error) {
-            res.json({ status: "error", message: "error in DB connection" });
+            res.json({ status: "error", message: "id not exist" });
         }
     },
 
@@ -63,7 +63,7 @@ exports.memoryController = {
             const memories = await memoryModel.findOne({_id: req.params.memoryid});
             res.json(memories);
         } catch (error) {
-            res.json({ status: "error", message: "error in DB connection" });
+            res.json({ status: "error", message: "id not exist" });
         }
     },
     async getAllForManeger(req, res) {
@@ -81,7 +81,7 @@ exports.memoryController = {
             })
             res.json(sendMemory);
         } catch (error) {
-            res.json({ status: "error", message: "error in DB connection" });
+            res.json({ status: "error", message: "id not exist" });
         }
     },
 
@@ -101,7 +101,7 @@ exports.memoryController = {
             res.json(sendMemory);
         } catch (error) {
             console.log(error);
-            res.json({ status: "error", message: "error in DB connection" });
+            res.json({ status: "error", message: "id not exist" });
         }
     },
 
@@ -136,7 +136,7 @@ exports.memoryController = {
             if (data) {
                 res.json({ status: "success", message: `memory updated successfully to ${req.body.status}` });
             } else {
-                res.json({ status: "error", message: `error in DB connection` });
+                res.json({ status: "error", message: `id not exist` });
             }
         } catch (error) {
             res.status(400).json({ status: "error", message: `error in DB connection` });
