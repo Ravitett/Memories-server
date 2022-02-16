@@ -6,7 +6,7 @@ exports.memoryController = {
     async getAll(req, res) {
         try {
             const memories = await memoryModel.find({status:'approved'})
-                .select(['_id','location']);
+                .select(['_id','date','memory','title','gallery','location']);
             res.json(memories);
         } catch (error) {
             res.json({ status: "error", message: "error in DB connection" });
