@@ -19,7 +19,7 @@ exports.memoryController = {
                 .select(['date','memory','title','gallery']);
             res.json(memory);
         } catch (error) {
-            res.json({ status: "error", message: "id not exist" });
+            res.json({ status: "error", message: "Id not exist" });
         }
     },
     
