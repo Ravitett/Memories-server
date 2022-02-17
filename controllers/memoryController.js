@@ -182,11 +182,7 @@ exports.memoryController = {
             if(data){
                 res.json({ status: "success", message: `Memory deleted successfully` });
             } else{
-<<<<<<< HEAD
-                res.status(400).json({ status: "error", message: `Memory id is not exist` });
-=======
                 res.json({ status: "error", message: `Memory id is not exist` });
->>>>>>> final-fixing
             } 
         } catch (error) {
             res.status(400).json({ status: "error", message: `Error in DB connection` });
