@@ -31,7 +31,6 @@ const {userRouter} = require('./routers/userRouter');
 app.use('/api/user' ,userRouter);
 
 const {memoryRouter} = require('./routers/memoryRouter');
-const { updateLocale } = require('moment');
 app.use('/api/memories', memoryRouter);
 
 app.all('*',(req,res) => {
