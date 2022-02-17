@@ -9,7 +9,7 @@ exports.memoryController = {
                 .select(['_id','date','memory','title','gallery','location']);
             res.json(memories);
         } catch (error) {
-            res.json({ status: "error", message: "error in DB connection" });
+            res.json({ status: "error", message: "Error in DB connection" });
         }
     },
 
@@ -29,7 +29,7 @@ exports.memoryController = {
                 .select(['chat']);
             res.json(memory);
         } catch (error) {
-            res.json({ status: "error", message: "id not exist" });
+            res.json({ status: "error", message: "Id not exist" });
         }
     },
 
@@ -54,7 +54,7 @@ exports.memoryController = {
             })
             res.json(memories);
         } catch (error) {
-            res.json({ status: "error", message: "id not exist" });
+            res.json({ status: "error", message: "Id not exist" });
         }
     },
 
@@ -63,7 +63,7 @@ exports.memoryController = {
             const memories = await memoryModel.findOne({_id: req.params.memoryid});
             res.json(memories);
         } catch (error) {
-            res.json({ status: "error", message: "id not exist" });
+            res.json({ status: "error", message: "Id not exist" });
         }
     },
     async getAllForManeger(req, res) {
@@ -81,7 +81,7 @@ exports.memoryController = {
             })
             res.json(sendMemory);
         } catch (error) {
-            res.json({ status: "error", message: "id not exist" });
+            res.json({ status: "error", message: "Id not exist" });
         }
     },
 
@@ -101,7 +101,7 @@ exports.memoryController = {
             res.json(sendMemory);
         } catch (error) {
             console.log(error);
-            res.json({ status: "error", message: "id not exist" });
+            res.json({ status: "error", message: "Id not exist" });
         }
     },
 
@@ -119,12 +119,12 @@ exports.memoryController = {
             const obj = new memoryModel(body);
             const result = await obj.save();
             if(result){
-                res.json({ status: "success", message: `memory added successfully` });
+                res.json({ status: "success", message: `Memory added successfully` });
             } else{
-                res.json({status:"error", message: "memory not added"});
+                res.json({status:"error", message: "Memory not added"});
             } 
         } catch (error) {
-            res.status(400).json({status:"error", message: "error in DB connection"});
+            res.status(400).json({status:"error", message: "Error in DB connection"});
         }
     },
 
@@ -134,12 +134,12 @@ exports.memoryController = {
         try {
             let data = await memoryModel.updateOne({_id:req.params.id},req.body);
             if (data) {
-                res.json({ status: "success", message: `memory updated successfully to ${req.body.status}` });
+                res.json({ status: "success", message: `Memory updated successfully to ${req.body.status}` });
             } else {
-                res.json({ status: "error", message: `id not exist` });
+                res.json({ status: "error", message: `Id not exist` });
             }
         } catch (error) {
-            res.status(400).json({ status: "error", message: `error in DB connection` });
+            res.status(400).json({ status: "error", message: `Error in DB connection` });
         }
 
     },
@@ -151,12 +151,12 @@ exports.memoryController = {
         try {
             let data = await memoryModel.updateOne({ _id: req.params.id }, req.body);
             if (data.acknowledged && data.modifiedCount == 1) {
-                res.json({ status: "success", message: `status updated successfully to ${req.body.status}` });
+                res.json({ status: "success", message: `Status updated successfully to ${req.body.status}` });
             } else {
-                res.json({ status: "error", message: `status is allready ${req.body.status}` });
+                res.json({ status: "error", message: `Status is allready ${req.body.status}` });
             }
         } catch (error) {
-            res.status(400).json({ status: "error", message: `error in DB connection` });
+            res.status(400).json({ status: "error", message: `Error in DB connection` });
         }
     },
 
@@ -167,12 +167,12 @@ exports.memoryController = {
         try {
             let data = await memoryModel.updateOne({ _id: req.params.id }, { $push: { chat: req.body } });
             if (data.acknowledged && data.modifiedCount == 1) {
-                res.json({ status: "success", message: `chat updated successfully` });
+                res.json({ status: "success", message: `Chat updated successfully` });
             } else {
-                res.json({ status: "error", message: `chat not updated` });
+                res.json({ status: "error", message: `Chat not updated` });
             }
         } catch (error) {
-            res.status(400).json({ status: "error", message: `error in DB connection` });
+            res.status(400).json({ status: "error", message: `Error in DB connection` });
         }
     },
 
@@ -180,12 +180,16 @@ exports.memoryController = {
         try {
             let data = await memoryModel.deleteOne({_id:req.params.id});
             if(data){
-                res.json({ status: "success", message: `memory deleted successfully` });
+                res.json({ status: "success", message: `Memory deleted successfully` });
             } else{
-                res.status(400).json({ status: "error", message: `error in DB connection` });
+<<<<<<< HEAD
+                res.status(400).json({ status: "error", message: `Memory id is not exist` });
+=======
+                res.json({ status: "error", message: `Memory id is not exist` });
+>>>>>>> final-fixing
             } 
         } catch (error) {
-            res.status(400).json({ status: "error", message: `error in DB connection` });
+            res.status(400).json({ status: "error", message: `Error in DB connection` });
         } 
     }
 }
