@@ -1,0 +1,8 @@
+info: Got a GET request - Route /api/memories/ - 2022-02-16T16:43:05+02:00
+info: Got a GET request - Route /auth/istoken/ - 2022-02-16T16:43:05+02:00
+info: Got a GET request - Route /auth/isadmin/ - 2022-02-16T16:43:05+02:00
+info: Got a GET request - Route /api/memories/memory/620a50fec7f95a4202e6d5ea - 2022-02-16T16:43:10+02:00
+info: Got a GET request - Route /api/memories/memory/620a471fbf9994408aada482 - 2022-02-16T16:46:03+02:00
+info: Got a GET request - Route /api/memories/memory/620a4da0c7f95a4202e6d5c5 - 2022-02-16T16:46:05+02:00
+info: Got a GET request - Route /api/memories/memory/620a4e20c7f95a4202e6d5ce - 2022-02-16T16:46:09+02:00
+info: Got a GET request - Route /api/memories/memory/620a4f9dc7f95a4202e6d5d7 - 2022-02-16T16:46:11+02:00
